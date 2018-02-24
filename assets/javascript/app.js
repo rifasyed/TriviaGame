@@ -4,7 +4,7 @@ $(document).ready(function() {
     var max = 10;
     var stats = 0;
     var qAnswered = [];
-    
+
     var newGame = function() {
         num = 0
         count = 0
@@ -22,10 +22,10 @@ $(document).ready(function() {
         return answer
     }
     
-    // var pickQuestion = function() {
-    //     var max = Object.keys(trivia).length;
-    //     num = Math.floor((Math.random() * max) + 1)
-    // }
+    var pickQuestion = function() {
+        var max = Object.keys(trivia).length;
+        num = Math.floor((Math.random() * max) + 1)
+    }
     
     var newQuestion = function() {
         qAnswered.push(num)
@@ -54,9 +54,18 @@ $(document).ready(function() {
     }
 
     $("#new-game").click(function() {
+        var timeleft = 30;
+        var downloadTimer = setInterval(function(){
+        timeleft--;
+        $("#timer").html("Time left: " + timeleft);
+        if(timeleft <= 0)
+            clearInterval(downloadTimer);
+        },1000);
+        
         $("#start").fadeOut(500, function() {
             newGame()
             newQuestion()
+            pickQuestion()
             $("#quiz").fadeIn(500)
         })
     })
@@ -109,18 +118,18 @@ var trivia = [
         answerChoices: ["Trickshot", "Goliath", "Hawkeye", "Ronin"],
         // image:
         correct: 0
-    // },
-    // {
-    //     question: "Who is the richest character in the Marvel Universe?",
-    //     answerChoices: ["Tony Stark", "King T'Challa", "Professor X", "Reed Richards"],
-    //     // image:
-    //     correct: 1
-    // },
-    // {
-    //     question: "The Inhumans got their powers from...?",
-    //     answerChoices: ["Radiation", "The X-Gene", "The Metagene", "Terrigen"],
-    //     // image:
-    //     correct: 3
+    },
+    {
+        question: "Who is the richest character in the Marvel Universe?",
+        answerChoices: ["Tony Stark", "King T'Challa", "Professor X", "Reed Richards"],
+        // image:
+        correct: 1
+    },
+    {
+        question: "The Inhumans got their powers from...?",
+        answerChoices: ["Radiation", "The X-Gene", "The Metagene", "Terrigen"],
+        // image:
+        correct: 3
     }
 
 
