@@ -10,14 +10,70 @@
     <title>Trivia Time Bitchachos</title>
 </head>
 <body>
-    <div id="quiz"></div>
-    <button id="submit">Submit</button>
-    <p> 
-        <span id="countdowntimer">30 </span> Seconds
-    </p>
-    <div id="results"></div>
+    <heading>
+        <div class="title">
+            <h1><span>Marvel Trivia</span><br><span>For Experts</span></h1>
+        </div>
+    </heading>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./assets/javascript/app.js"></script>
+    <div id="content">
+
+        <div id="quiz" class="hidden">
+
+            <div id="game-stats" class="clear">
+                <div id="points">Points: <span>0</span></div>
+            </div>
+            
+            <section id="question">
+                <p> 
+                    <span id="timer">Time left: 30 </span> Seconds
+                </p>
+
+                <p id="live-question">Question:</p>
+
+                <form>
+                    <div><input type="radio" name="ans" value="1"> <span id="answer-1"></span> </div>
+                    <div><input type="radio" name="ans" value="2"> <span id="answer-2"></span> </div>
+                    <div><input type="radio" name="ans" value="3"> <span id="answer-3"></span> </div>
+                    <div><input type="radio" name="ans" value="4"> <span id="answer-4"></span> </div>
+                </form>
+
+                <button id="submit-btn">Submit</button>  
+
+            </section>
+
+        </div>
+
+        <section id="start" class="clear">
+            <button id="new-game">New Game</button>
+        </section>
+
+        <section id="right-ans" class="hidden">
+            <h2>That's Right!</h2>
+            <br>
+            <p>Total Points: <span class="score">0</span></p>
+            <br>
+            <p><button class="next">Next Question</button></p>
+        </section>
+
+        <section id="wrong-ans" class="hidden">
+            <h2>Oops, that's Wrong!</h2>
+            <br>
+            <p>Total Points: <span class="score">0</span></p>
+            <br>
+            <p><button class="next">Next Continue</button></p>
+        </section>
+
+        <section id="final-score" class="hidden">
+            <h2>Final Score: <span class="score">0</span>/10</h2>
+            <br>
+            <p><button id="play-again">Play Again</button></p>
+        </section>
+        
+    </div>
+    
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./assets/javascript/app.js"></script>
+    
 </body>
 </html>
